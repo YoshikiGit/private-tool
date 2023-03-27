@@ -16,7 +16,7 @@ _parameters=""
 
 # jqを使って、キーと値を順番に読み込む
 for key in $(echo "$json" | jq -r 'keys[]'); do
-  _parameter_key="ParameterKey=\"${key}\", "
+  _parameter_key="ParameterKey=\"${key}\","
   _parameter_value="ParameterValue=\"$(echo "$json" | jq -r ".$key")\" "
   _parameters+="$_parameter_key$_parameter_value "
 done
